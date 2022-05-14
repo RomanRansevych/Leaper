@@ -86,17 +86,4 @@ public class RestController {
 
         return "User deleted with id = " + "'" + id + "'";
     }
-
-//    @PostMapping("/users")
-//    public User getUserByLoginAndPassword(@RequestBody User user) {
-//        user = userService.getUserByLoginAndPassword(user.getLogin(), user.getPassword());
-//
-//        if (user == null) {
-//            System.out.println("rrrrr");
-//            return user;
-//        } else {
-//            System.out.println("eeeeee");
-//            return user;
-//        }
-//    }
 }

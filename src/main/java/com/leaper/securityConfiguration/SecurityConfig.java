@@ -14,9 +14,6 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-//    @Autowired
-//    private SecurityService securityService;
-
     @Autowired
     DataSource dataSource;
 
@@ -37,10 +34,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers("leaper").hasRole("STUDENT")
                     .antMatchers("/css/*")
-                .permitAll()
+                    .permitAll()
                 .anyRequest().authenticated()
                 .and()
-//                .formLogin().permitAll()
                 .formLogin()
                     .loginPage("/leaper/login")
                     .permitAll();

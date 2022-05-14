@@ -25,24 +25,8 @@ public class WebController {
         return "login";
     }
 
-//    @GetMapping("/leaper")
-//    public String mainPage() {
-//        return "login";
-//    }
-
     @GetMapping("/timetable")
     public String profilePage() {
         return "leaper-profile";
     }
-
-//    @GetMapping("/leaper/profile/{login}/{password}")
-//    public String authorisation(@PathVariable String login, @PathVariable String password) {
-//        User user = userService.getUserByLoginAndPassword(login, password);
-//
-//        if (user == null) {
-//            return "leaper";
-//        } else {
-//          return "leaper-profile";
-//        }
-//    }
 }

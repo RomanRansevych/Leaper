@@ -1,4 +1,4 @@
-package com.leaper.service;
+package com.leaper.service.user;
 
 import com.leaper.entity.User;
 import com.leaper.repository.UserRepository;
@@ -39,5 +39,10 @@ public class UserServiceImplements implements UserService {
     @Override
     public void deleteUser(int id) {
         userRepository.deleteById(id);
+    }
+
+    @Override
+    public User getUserByLoginAndPassword(String login, String password) {
+        return userRepository.getUserByLoginAndPassword(login, password);
     }
 }

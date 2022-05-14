@@ -1,7 +1,20 @@
 package com.leaper.entity;
 
-import javax.persistence.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@EqualsAndHashCode
 @Entity
 @Table(name = "users")
 public class User {
@@ -20,8 +33,8 @@ public class User {
     @Column(name = "role")
     private String role;
 
-    @Column(name = "status")
-    private int status;
+    @Column(name = "enabled")
+    private boolean enabled;
 
     @Column(name = "first_name")
     private String firstName;
@@ -38,8 +51,8 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    public User() {
-    }
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Timetable> timetableList;
 
     public User(String login, String password, String role) {
         this.login = login;
@@ -47,99 +60,11 @@ public class User {
         this.role = role;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
-                ", status=" + status +
-                ", firstName='" + firstName + '\'' +
-                ", secondName='" + secondName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
-                '}' + "\n";
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getSecondName() {
-        return secondName;
-    }
-
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void addTimetable(Timetable timetable){
+        if (timetableList == null) {
+            timetableList = new ArrayList<>();
+        }
+        timetableList.add(timetable);
+        timetable.setUser(this);
     }
 }

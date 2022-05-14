@@ -1,4 +1,4 @@
-package com.leaper.service;
+package com.leaper.service.user;
 
 import com.leaper.entity.User;
 
@@ -12,6 +12,8 @@ public interface UserService {
     User getUser(int id);
 
     void deleteUser(int id);
+
+    User getUserByLoginAndPassword(String login, String password);
 
 //    List<User> findAllByName(String name);
 }

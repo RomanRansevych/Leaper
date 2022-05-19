@@ -1,16 +1,13 @@
 package com.leaper.entity;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "timetable")
 public class Timetable {
@@ -46,9 +43,13 @@ public class Timetable {
     @Column(name = "eighth")
     private String eighth;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
+
+    public Timetable(){
+    }
 
     public Timetable(String dayOfWeek) {
         this.setDayOfWeek(dayOfWeek);

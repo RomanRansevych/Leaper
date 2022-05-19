@@ -88,6 +88,31 @@ public class RestController {
         homeworkService.deleteHomework(id);
     }
 
+//    @PatchMapping("/timetable")
+//    public List<Timetable> saveTimetable(@AuthenticationPrincipal org.springframework.security.core.userdetails.User userSecurity, @RequestBody List<Timetable> timetableList) {
+//        com.leaper.entity.User user = userService.getUserByLogin(userSecurity.getUsername());
+//
+//        for (Timetable timetable : timetableList) {
+//            timetableService.saveTimetable(timetable);
+//        }
+//
+//        return timetableList;
+//    }
+
+//    @PostMapping("/timetable")
+//    public void saveTimetable(@RequestBody String first, @RequestBody String second, @RequestBody String third, @RequestBody String fourth, @RequestBody String fifth, @RequestBody String sixth, @RequestBody String seventh, @RequestBody String eighth, @RequestBody int id) {
+//        timetableService.updateTimetable(first, second, third, fourth, fifth, sixth, seventh, eighth, id);
+//    }
+
+    @PatchMapping("/timetable")
+    public Timetable saveTimetable(@RequestBody Timetable timetable) {
+        timetableService.updateTimetable(timetable.getFirst(), timetable.getSecond(), timetable.getThird(),
+                timetable.getFourth(), timetable.getFifth(), timetable.getSixth(), timetable.getSeventh(),
+                timetable.getEighth(), timetable.getId());
+
+        return timetable;
+    }
+
 //    @PutMapping("/users")
 //    public User updateUser(@RequestBody User user) {
 //        userService.saveUser(user);

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaper</title>
+    <link th:href="@{/css/edit-timetable-style.css}" rel="stylesheet"/>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<body>
+<header>
+    <div class="title">Leaper</div>
+</header>
+
+<div class="title" id="button">
+    <button onclick="location.href='/leaper/timetable'" type="button" class="btn btn-info">Timetable</button>
+    <button onclick="location.href='/leaper/homework'" type="button" class="btn btn-warning">Homework</button>
+    <button type="button" class="btn btn-success">Profile</button>
+    <button type="button" class="btn btn-danger">Exit</button>
+</div>
+
+<h2 class="text_h">Edit timetable</h2>
+
+<p>--><a href="/leaper/timetable" class="pe-auto"> back </a><--</p>
+<h2>
+    ----------------------------------------------------------------------------------------------------------------------</h2>
+
+<table>
+    <tr>
+        <th>№</th>
+        <th th:value="${mondayTimetable.id}" id="mondayTimetableId" class="dayOfWeekTimetable">Monday</th>
+        <th th:value="${tuesdayTimetable.id}" id="tuesdayTimetableId" class="dayOfWeekTimetable">Tuesday</th>
+        <th th:value="${wednesdayTimetable.id}" id="wednesdayTimetableId" class="dayOfWeekTimetable">Wednesday</th>
+        <th th:value="${thursdayTimetable.id}" id="thursdayTimetableId" class="dayOfWeekTimetable">Thursday</th>
+        <th th:value="${fridayTimetable.id}" id="fridayTimetableId" class="dayOfWeekTimetable">Friday</th>
+        <th th:value="${saturdayTimetable.id}" id="saturdayTimetableId" class="dayOfWeekTimetable">Saturday</th>
+        <th th:value="${sundayTimetable.id}" id="sundayTimetableId" class="dayOfWeekTimetable">Sunday</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td><input th:value="${mondayTimetable.first}" name="mondayTimetable"></td>
+        <td><input th:value="${tuesdayTimetable.first}" name="tuesdayTimetable"></td>
+        <td><input th:value="${wednesdayTimetable.first}" name="wednesdayTimetable"></td>
+        <td><input th:value="${thursdayTimetable.first}" name="thursdayTimetable"></td>
+        <td><input th:value="${fridayTimetable.first}" name="fridayTimetable"></td>
+        <td><input th:value="${saturdayTimetable.first}" name="saturdayTimetable"></td>
+        <td><input th:value="${sundayTimetable.first}" name="sundayTimetable"></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td><input th:value="${mondayTimetable.second}" name="mondayTimetable"></td>
+        <td><input th:value="${tuesdayTimetable.second}" name="tuesdayTimetable"></td>
+        <td><input th:value="${wednesdayTimetable.second}" name="wednesdayTimetable"></td>
+        <td><input th:value="${thursdayTimetable.second}" name="thursdayTimetable"></td>
+        <td><input th:value="${fridayTimetable.second}" name="fridayTimetable"></td>
+        <td><input th:value="${saturdayTimetable.second}" name="saturdayTimetable"></td>
+        <td><input th:value="${sundayTimetable.second}" name="sundayTimetable"></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td><input th:value="${mondayTimetable.third}" name="mondayTimetable"></td>
+        <td><input th:value="${tuesdayTimetable.third}" name="tuesdayTimetable"></td>
+        <td><input th:value="${wednesdayTimetable.third}" name="wednesdayTimetable"></td>
+        <td><input th:value="${thursdayTimetable.third}" name="thursdayTimetable"></td>
+        <td><input th:value="${fridayTimetable.third}" name="fridayTimetable"></td>
+        <td><input th:value="${saturdayTimetable.third}" name="saturdayTimetable"></td>
+        <td><input th:value="${sundayTimetable.third}" name="sundayTimetable"></td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td><input th:value="${mondayTimetable.fourth}" name="mondayTimetable"></td>
+        <td><input th:value="${tuesdayTimetable.fourth}" name="tuesdayTimetable"></td>
+        <td><input th:value="${wednesdayTimetable.fourth}" name="wednesdayTimetable"></td>
+        <td><input th:value="${thursdayTimetable.fourth}" name="thursdayTimetable"></td>
+        <td><input th:value="${fridayTimetable.fourth}" name="fridayTimetable"></td>
+        <td><input th:value="${saturdayTimetable.fourth}" name="saturdayTimetable"></td>
+        <td><input th:value="${sundayTimetable.fourth}" name="sundayTimetable"></td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td><input th:value="${mondayTimetable.fifth}" name="mondayTimetable"></td>
+        <td><input th:value="${tuesdayTimetable.fifth}" name="tuesdayTimetable"></td>
+        <td><input th:value="${wednesdayTimetable.fifth}" name="wednesdayTimetable"></td>
+        <td><input th:value="${thursdayTimetable.fifth}" name="thursdayTimetable"></td>
+        <td><input th:value="${fridayTimetable.fifth}" name="fridayTimetable"></td>
+        <td><input th:value="${saturdayTimetable.fifth}" name="saturdayTimetable"></td>
+        <td><input th:value="${sundayTimetable.fifth}" name="sundayTimetable"></td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td><input th:value="${mondayTimetable.sixth}" name="mondayTimetable"></td>
+        <td><input th:value="${tuesdayTimetable.sixth}" name="tuesdayTimetable"></td>
+        <td><input th:value="${wednesdayTimetable.sixth}" name="wednesdayTimetable"></td>
+        <td><input th:value="${thursdayTimetable.sixth}" name="thursdayTimetable"></td>
+        <td><input th:value="${fridayTimetable.sixth}" name="fridayTimetable"></td>
+        <td><input th:value="${saturdayTimetable.sixth}" name="saturdayTimetable"></td>
+        <td><input th:value="${sundayTimetable.sixth}" name="sundayTimetable"></td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td><input th:value="${mondayTimetable.seventh}" name="mondayTimetable"></td>
+        <td><input th:value="${tuesdayTimetable.seventh}" name="tuesdayTimetable"></td>
+        <td><input th:value="${wednesdayTimetable.seventh}" name="wednesdayTimetable"></td>
+        <td><input th:value="${thursdayTimetable.seventh}" name="thursdayTimetable"></td>
+        <td><input th:value="${fridayTimetable.seventh}" name="fridayTimetable"></td>
+        <td><input th:value="${saturdayTimetable.seventh}" name="saturdayTimetable"></td>
+        <td><input th:value="${sundayTimetable.seventh}" name="sundayTimetable"></td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td><input th:value="${mondayTimetable.eighth}" name="mondayTimetable"></td>
+        <td><input th:value="${tuesdayTimetable.eighth}" name="tuesdayTimetable"></td>
+        <td><input th:value="${wednesdayTimetable.eighth}" name="wednesdayTimetable"></td>
+        <td><input th:value="${thursdayTimetable.eighth}" name="thursdayTimetable"></td>
+        <td><input th:value="${fridayTimetable.eighth}" name="fridayTimetable"></td>
+        <td><input th:value="${saturdayTimetable.eighth}" name="saturdayTimetable"></td>
+        <td><input th:value="${sundayTimetable.eighth}" name="sundayTimetable"></td>
+    </tr>
+</table>
+
+<div class="btn-div">
+    <button id="set-timetable" onclick="sendJSON()" type="button" class="btn btn-warning">Set new timetable</button>
+</div>
+
+<script>
+    function sendJSON() {
+
+        let mondayTimetableId = document.getElementById("mondayTimetableId");
+        let tuesdayTimetableId = document.getElementById("tuesdayTimetableId");
+        let wednesdayTimetableId = document.getElementById("wednesdayTimetableId");
+        let thursdayTimetableId = document.getElementById("thursdayTimetableId");
+        let fridayTimetableId = document.getElementById("fridayTimetableId");
+        let saturdayTimetableId = document.getElementById("saturdayTimetableId");
+        let sundayTimetableId = document.getElementById("sundayTimetableId");
+
+        var mondayTimetable = document.getElementsByName("mondayTimetable");
+        var tuesdayTimetable = document.getElementsByName("tuesdayTimetable");
+        var wednesdayTimetable = document.getElementsByName("wednesdayTimetable");
+        var thursdayTimetable = document.getElementsByName("thursdayTimetable");
+        var fridayTimetable = document.getElementsByName("fridayTimetable");
+        var saturdayTimetable = document.getElementsByName("saturdayTimetable");
+        var sundayTimetable = document.getElementsByName("sundayTimetable");
+
+        let xhr = new XMLHttpRequest();
+        let url = "http://localhost:3245/api/timetable";
+        xhr.open("PATCH", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        var data = JSON.stringify({
+            "id": mondayTimetableId.getAttribute("value"),
+            "day_of_week": "ff",
+            "first": mondayTimetable[0].value,
+            "second": mondayTimetable[1].value,
+            "third": mondayTimetable[2].value,
+            "fourth": mondayTimetable[3].value,
+            "fifth": mondayTimetable[4].value,
+            "sixth": mondayTimetable[5].value,
+            "seventh": mondayTimetable[6].value,
+            "eighth": mondayTimetable[7].value,
+            "user_id": "1"
+        });
+        xhr.send(data);
+
+        xhr = new XMLHttpRequest();
+        xhr.open("PATCH", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        var data = JSON.stringify({
+            "id": tuesdayTimetableId.getAttribute("value"),
+            "day_of_week": "ff",
+            "first": tuesdayTimetable[0].value,
+            "second": tuesdayTimetable[1].value,
+            "third": tuesdayTimetable[2].value,
+            "fourth": tuesdayTimetable[3].value,
+            "fifth": tuesdayTimetable[4].value,
+            "sixth": tuesdayTimetable[5].value,
+            "seventh": tuesdayTimetable[6].value,
+            "eighth": tuesdayTimetable[7].value,
+            "user_id": "1"
+        });
+        xhr.send(data);
+
+        xhr = new XMLHttpRequest();
+        xhr.open("PATCH", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        var data = JSON.stringify({
+            "id": wednesdayTimetableId.getAttribute("value"),
+            "day_of_week": "ff",
+            "first": wednesdayTimetable[0].value,
+            "second": wednesdayTimetable[1].value,
+            "third": wednesdayTimetable[2].value,
+            "fourth": wednesdayTimetable[3].value,
+            "fifth": wednesdayTimetable[4].value,
+            "sixth": wednesdayTimetable[5].value,
+            "seventh": wednesdayTimetable[6].value,
+            "eighth": wednesdayTimetable[7].value,
+            "user_id": "1"
+        });
+        xhr.send(data);
+
+        xhr = new XMLHttpRequest();
+        xhr.open("PATCH", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        var data = JSON.stringify({
+            "id": thursdayTimetableId.getAttribute("value"),
+            "day_of_week": "ff",
+            "first": thursdayTimetable[0].value,
+            "second": thursdayTimetable[1].value,
+            "third": thursdayTimetable[2].value,
+            "fourth": thursdayTimetable[3].value,
+            "fifth": thursdayTimetable[4].value,
+            "sixth": thursdayTimetable[5].value,
+            "seventh": thursdayTimetable[6].value,
+            "eighth": thursdayTimetable[7].value,
+            "user_id": "1"
+        });
+        xhr.send(data);
+
+        xhr = new XMLHttpRequest();
+        xhr.open("PATCH", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        var data = JSON.stringify({
+            "id": fridayTimetableId.getAttribute("value"),
+            "day_of_week": "ff",
+            "first": fridayTimetable[0].value,
+            "second": fridayTimetable[1].value,
+            "third": fridayTimetable[2].value,
+            "fourth": fridayTimetable[3].value,
+            "fifth": fridayTimetable[4].value,
+            "sixth": fridayTimetable[5].value,
+            "seventh": fridayTimetable[6].value,
+            "eighth": fridayTimetable[7].value,
+            "user_id": "1"
+        });
+        xhr.send(data);
+
+        xhr = new XMLHttpRequest();
+        xhr.open("PATCH", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        var data = JSON.stringify({
+            "id": saturdayTimetableId.getAttribute("value"),
+            "day_of_week": "ff",
+            "first": saturdayTimetable[0].value,
+            "second": saturdayTimetable[1].value,
+            "third": saturdayTimetable[2].value,
+            "fourth": saturdayTimetable[3].value,
+            "fifth": saturdayTimetable[4].value,
+            "sixth": saturdayTimetable[5].value,
+            "seventh": saturdayTimetable[6].value,
+            "eighth": saturdayTimetable[7].value,
+            "user_id": "1"
+        });
+        xhr.send(data);
+
+        xhr = new XMLHttpRequest();
+        xhr.open("PATCH", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        var data = JSON.stringify({
+            "id": sundayTimetableId.getAttribute("value"),
+            "day_of_week": "ff",
+            "first": sundayTimetable[0].value,
+            "second": sundayTimetable[1].value,
+            "third": sundayTimetable[2].value,
+            "fourth": sundayTimetable[3].value,
+            "fifth": sundayTimetable[4].value,
+            "sixth": sundayTimetable[5].value,
+            "seventh": sundayTimetable[6].value,
+            "eighth": sundayTimetable[7].value,
+            "user_id": "1"
+        });
+        xhr.send(data);
+
+        setTimeout(function(){
+            location.href='/leaper/timetable';
+        }, 200);
+    }
+</script>
+</body>
+</html>

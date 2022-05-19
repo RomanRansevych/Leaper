@@ -9,6 +9,16 @@ header {
     height: 80px;
 }
 
+.btn-div {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+}
+
+#set-timetable {
+    width: 350px;
+}
+
 .text_h {
     text-align: center;
 }

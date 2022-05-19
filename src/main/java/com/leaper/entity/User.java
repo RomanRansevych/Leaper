@@ -1,7 +1,7 @@
 package com.leaper.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,7 +10,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
 @Table(name = "users")
 public class User {
@@ -47,9 +46,11 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Timetable> timetableList;
 
+    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Homework> homeworkList;
 
@@ -57,6 +58,10 @@ public class User {
         this.login = login;
         this.password = password;
         this.role = role;
+    }
+
+    public User() {
+
     }
 
     public void addTimetable(Timetable timetable){

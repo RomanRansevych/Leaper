@@ -45,4 +45,9 @@ public class UserServiceImplements implements UserService {
     public User getUserByLoginAndPassword(String login, String password) {
         return userRepository.getUserByLoginAndPassword(login, password);
     }
+
+    @Override
+    public User getUserByLogin(String login) {
+        return userRepository.getUserByLogin(login);
+    }
 }

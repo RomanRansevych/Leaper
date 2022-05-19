@@ -20,6 +20,18 @@ header {
     padding: 5px;
 }
 
+.text_h {
+    text-align: center;
+}
+
+input {
+    padding: 4px;
+}
+
+#button {
+    background-color: #494949;
+}
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;

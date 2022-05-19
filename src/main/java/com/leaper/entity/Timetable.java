@@ -1,6 +1,6 @@
 package com.leaper.entity;
 
-import lombok.EqualsAndHashCode;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@EqualsAndHashCode
+@AllArgsConstructor
 @Entity
 @Table(name = "timetable")
 public class Timetable {
@@ -46,7 +46,7 @@ public class Timetable {
     @Column(name = "eighth")
     private String eighth;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 

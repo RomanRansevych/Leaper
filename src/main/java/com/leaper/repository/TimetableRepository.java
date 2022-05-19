@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface TimetableRepository extends JpaRepository<Timetable, Integer> {
+    List<Timetable> getTimetableByUser_Id(int userId);
 }

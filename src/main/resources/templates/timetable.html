@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaper</title>
+    <link th:href="@{/css/timetable-style.css}" rel="stylesheet"/>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<body>
+<header>
+    <div class="title">Leaper</div>
+</header>
+
+<div class="title" id="button">
+    <button onclick="location.href='/leaper/timetable'" type="button" class="btn btn-info">Timetable</button>
+    <button onclick="location.href='/leaper/homework'" type="button" class="btn btn-warning">Homework</button>
+    <button type="button" class="btn btn-success">Primary</button>
+    <button type="button" class="btn btn-danger">Exit</button>
+</div>
+
+<h2>Hello, <th:block th:text="${user.firstName}" /> it's your timetable.</h2>
+<p>--><a href="#" class="pe-auto"> edit timetable </a><--</p>
+<h2>-----------------------------------------------------------------------------------------------------------------------</h2>
+
+<table>
+    <tr>
+        <th>№</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td th:text="${mondayTimetable.first}">...</td>
+        <td th:text="${tuesdayTimetable.first}">...</td>
+        <td th:text="${wednesdayTimetable.first}">...</td>
+        <td th:text="${thursdayTimetable.first}">...</td>
+        <td th:text="${fridayTimetable.first}">...</td>
+        <td th:text="${saturdayTimetable.first}">...</td>
+        <td th:text="${sundayTimetable.first}">...</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td th:text="${mondayTimetable.second}">...</td>
+        <td th:text="${tuesdayTimetable.second}">...</td>
+        <td th:text="${wednesdayTimetable.second}">...</td>
+        <td th:text="${thursdayTimetable.second}">...</td>
+        <td th:text="${fridayTimetable.second}">...</td>
+        <td th:text="${saturdayTimetable.second}">...</td>
+        <td th:text="${sundayTimetable.second}">...</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td th:text="${mondayTimetable.third}">...</td>
+        <td th:text="${tuesdayTimetable.third}">...</td>
+        <td th:text="${wednesdayTimetable.third}">...</td>
+        <td th:text="${thursdayTimetable.third}">...</td>
+        <td th:text="${fridayTimetable.third}">...</td>
+        <td th:text="${saturdayTimetable.third}">...</td>
+        <td th:text="${sundayTimetable.third}">...</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td th:text="${mondayTimetable.fourth}">...</td>
+        <td th:text="${tuesdayTimetable.fourth}">...</td>
+        <td th:text="${wednesdayTimetable.fourth}">...</td>
+        <td th:text="${thursdayTimetable.fourth}">...</td>
+        <td th:text="${fridayTimetable.fourth}">...</td>
+        <td th:text="${saturdayTimetable.fourth}">...</td>
+        <td th:text="${sundayTimetable.fourth}">...</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td th:text="${mondayTimetable.fifth}">...</td>
+        <td th:text="${tuesdayTimetable.fifth}">...</td>
+        <td th:text="${wednesdayTimetable.fifth}">...</td>
+        <td th:text="${thursdayTimetable.fifth}">...</td>
+        <td th:text="${fridayTimetable.fifth}">...</td>
+        <td th:text="${saturdayTimetable.fifth}">...</td>
+        <td th:text="${sundayTimetable.fifth}">...</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td th:text="${mondayTimetable.sixth}">...</td>
+        <td th:text="${tuesdayTimetable.sixth}">...</td>
+        <td th:text="${wednesdayTimetable.sixth}">...</td>
+        <td th:text="${thursdayTimetable.sixth}">...</td>
+        <td th:text="${fridayTimetable.sixth}">...</td>
+        <td th:text="${saturdayTimetable.sixth}">...</td>
+        <td th:text="${sundayTimetable.sixth}">...</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td th:text="${mondayTimetable.seventh}">...</td>
+        <td th:text="${tuesdayTimetable.seventh}">...</td>
+        <td th:text="${wednesdayTimetable.seventh}">...</td>
+        <td th:text="${thursdayTimetable.seventh}">...</td>
+        <td th:text="${fridayTimetable.seventh}">...</td>
+        <td th:text="${saturdayTimetable.seventh}">...</td>
+        <td th:text="${sundayTimetable.seventh}">...</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td th:text="${mondayTimetable.eighth}">...</td>
+        <td th:text="${tuesdayTimetable.eighth}">...</td>
+        <td th:text="${wednesdayTimetable.eighth}">...</td>
+        <td th:text="${thursdayTimetable.eighth}">...</td>
+        <td th:text="${fridayTimetable.eighth}">...</td>
+        <td th:text="${saturdayTimetable.eighth}">...</td>
+        <td th:text="${sundayTimetable.eighth}">...</td>
+    </tr>
+</table>
+</body>
+</html>

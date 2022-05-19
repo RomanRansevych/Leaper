@@ -16,8 +16,6 @@
     <div class="title">Leaper</div>
 
 </header>
-<!--<form></form> ТУТ ОСТАНОВКА-->
-
 <form method="post">
 
     <div class="form">
@@ -32,10 +30,10 @@
         <br>
         <input class="form-input" type="password" id="password" name="password" placeholder="Password">
         <br>
-        <button type="submit" class="form-button" id="sign-in-button" onclick="location.href='http://localhost:3245/leaper/timetable'">Log in</button>
+        <button type="submit" class="form-button" id="sign-in-button">Log in</button>
         <button class="form-button" id="registration-button">Registration</button>
     </div>
-    <input th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden">
+<!--    <input th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden">-->
 </form>
 
 <!-- скрипт, который обработает нажатие на кнопку и отправит данные на сервер -->

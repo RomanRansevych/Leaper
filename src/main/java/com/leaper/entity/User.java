@@ -1,20 +1,16 @@
 package com.leaper.entity;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@EqualsAndHashCode
 @Entity
 @Table(name = "users")
 public class User {
@@ -54,6 +50,9 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Timetable> timetableList;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Homework> homeworkList;
+
     public User(String login, String password, String role) {
         this.login = login;
         this.password = password;
@@ -66,5 +65,13 @@ public class User {
         }
         timetableList.add(timetable);
         timetable.setUser(this);
+    }
+
+    public void addHomework(Homework homework){
+        if (homeworkList == null) {
+            homeworkList = new ArrayList<>();
+        }
+        homeworkList.add(homework);
+        homework.setUser(this);
     }
 }

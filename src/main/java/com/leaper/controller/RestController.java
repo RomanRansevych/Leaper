@@ -1,19 +1,14 @@
 package com.leaper.controller;
 
+import com.leaper.entity.Homework;
 import com.leaper.entity.Timetable;
 import com.leaper.entity.User;
+import com.leaper.service.homework.HomeworkService;
 import com.leaper.service.timetable.TimetableService;
 import com.leaper.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.*;
 
 @org.springframework.web.bind.annotation.RestController
 @RequestMapping("/api")
@@ -25,19 +20,25 @@ public class RestController {
     @Autowired
     TimetableService timetableService;
 
-    @GetMapping("/users")
-    public List<User> showAllUsers() {
-        return userService.getAllUsers();
-    }
+    @Autowired
+    HomeworkService homeworkService;
 
-    @GetMapping("/users/{id}")
-    public User getUser(@PathVariable int id) {
-        return userService.getUser(id);
-    }
+//    @GetMapping("/users")
+//    public List<User> showAllUsers() {
+//        return userService.getAllUsers();
+//    }
 
+//    @GetMapping("/users/{id}")
+//    public User getUser(@PathVariable int id) {
+//        return userService.getUser(id);
+//    }
+
+    /*
+    Разобрать тут, сделать адекватное добавление в лист!!!!!!!!!!
+     */
     @PostMapping("/users")
     public User addNewUser(@RequestBody User user) {
-        user.setRole("Student");
+        user.setRole("ROLE_STUDENT");
         user.setEnabled(true);
         user.setFirstName("FirstName");
         user.setSecondName("SecondName");
@@ -73,17 +74,31 @@ public class RestController {
         return user;
     }
 
-    @PutMapping("/users")
-    public User updateUser(@RequestBody User user) {
-        userService.saveUser(user);
+    @PostMapping("/homework")
+    public Homework addNewHomework(@AuthenticationPrincipal org.springframework.security.core.userdetails.User userSecurity, @RequestBody Homework homework) {
+        com.leaper.entity.User user = userService.getUserByLogin(userSecurity.getUsername());
+        homework.setUser(user);
+        homeworkService.saveHomework(homework);
 
-        return user;
+        return homework;
     }
 
-    @DeleteMapping("/users/{id}")
-    public String deleteUser(@PathVariable int id) {
-        userService.deleteUser(id);
-
-        return "User deleted with id = " + "'" + id + "'";
+    @DeleteMapping("/homework/{id}")
+    public void deleteHomework(@PathVariable int id) {
+        homeworkService.deleteHomework(id);
     }
+
+//    @PutMapping("/users")
+//    public User updateUser(@RequestBody User user) {
+//        userService.saveUser(user);
+//
+//        return user;
+//    }
+//
+//    @DeleteMapping("/users/{id}")
+//    public String deleteUser(@PathVariable int id) {
+//        userService.deleteUser(id);
+//
+//        return "User deleted with id = " + "'" + id + "'";
+//    }
 }

@@ -24,6 +24,6 @@ public class TimetableServiceImplements implements TimetableService {
 
     @Override
     public List<Timetable> getUserTimetable(int id) {
-        return timetableRepository.findAllById(Collections.singleton(id));
+        return timetableRepository.getTimetableByUser_Id(id);
     }
 }

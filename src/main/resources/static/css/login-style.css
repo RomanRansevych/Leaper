@@ -66,3 +66,8 @@ header {
     background-color: tomato;
     transition: 400ms;
 }
+
+#error {
+    padding: 30px;
+    background-color: #494949;
+}

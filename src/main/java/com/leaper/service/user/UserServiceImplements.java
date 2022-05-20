@@ -16,13 +16,14 @@ public class UserServiceImplements implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<String> getAllUsername() {
+        return new ArrayList<>(userRepository.getAllUsername());
     }
 
     @Override
-    public List<String> getAllUsername() {
-        return new ArrayList<>(userRepository.getAllUsername());
+    public void updateUser(String login, String password, String firstName, String secondName,
+                           String lastName, String phoneNumber, String email, int id) {
+        userRepository.updateUser(login, password, firstName, secondName, lastName, phoneNumber, email, id);
     }
 
     @Override
@@ -45,11 +46,6 @@ public class UserServiceImplements implements UserService {
     @Override
     public void deleteUser(int id) {
         userRepository.deleteById(id);
-    }
-
-    @Override
-    public User getUserByLoginAndPassword(String login, String password) {
-        return userRepository.getUserByLoginAndPassword(login, password);
     }
 
     @Override

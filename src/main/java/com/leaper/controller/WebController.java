@@ -32,11 +32,8 @@ public class WebController {
     HomeworkService homeworkService;
 
     @GetMapping("/login")
-    public String login(@RequestParam(value = "error", required = false) String error,
-                        @RequestParam(value = "logout", required = false) String logout,
-                        Model model) {
+    public String login(@RequestParam(value = "error", required = false) String error, Model model) {
         model.addAttribute("error", error != null);
-        model.addAttribute("logout", logout != null);
 
         return "login";
     }
@@ -46,6 +43,14 @@ public class WebController {
         model.addAttribute("allUsername", userService.getAllUsername());
 
         return "registration";
+    }
+
+    @GetMapping("/profile")
+    public String profile(@AuthenticationPrincipal User userSecurity, Model model) {
+        com.leaper.entity.User user = userService.getUserByLogin(userSecurity.getUsername());
+        model.addAttribute("user", userService.getUser(user.getId()));
+
+        return "profile";
     }
 
     @GetMapping("/timetable")
@@ -110,16 +115,4 @@ public class WebController {
 
         return "homework";
     }
-
-//    @PostMapping("/homework")
-//    public void addHomework(@AuthenticationPrincipal User userSecurity, Model model) {
-//        com.leaper.entity.User user = userService.getUserByLogin(userSecurity.getUsername());
-//        List<Homework> homeworkList = homeworkService.getAllByUser_Id(user.getId());
-//        Homework newHomework = new Homework();
-//    }
-
-//    @GetMapping("/timetable")
-//    public String profilePage() {
-//        return "leaper-profile";
-//    }
 }

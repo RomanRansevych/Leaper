@@ -14,11 +14,6 @@ public class TimetableServiceImplements implements TimetableService {
     private TimetableRepository timetableRepository;
 
     @Override
-    public void saveTimetable(Timetable timetable) {
-        timetableRepository.save(timetable);
-    }
-
-    @Override
     public List<Timetable> getUserTimetable(int id) {
         return timetableRepository.getTimetableByUser_Id(id);
     }
@@ -29,5 +24,4 @@ public class TimetableServiceImplements implements TimetableService {
 
         return new Timetable();
     }
-
 }

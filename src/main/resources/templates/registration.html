@@ -16,7 +16,7 @@
     <div class="title">Leaper</div>
 </header>
 
-<h2 th:value="${allUsername}" id="users" class="text_h">Enter your data</h2>
+<h2 id="users" class="text_h">Enter your data</h2>
 
 <form method="post">
     <div class="form">
@@ -31,12 +31,11 @@
     </div>
 </form>
 
-<!-- скрипт, который обработает нажатие на кнопку и отправит данные на сервер -->
 <script th:inline="javascript">
     /*<![CDATA[*/
     var allUsername = /*[[${allUsername}]]*/ "allUsername";
     /*]]>*/
-    // эта функция сработает при нажатии на кнопку-->
+
     function sendJSON() {
 
         // с помощью jQuery обращаемся к элементам на странице по их именам

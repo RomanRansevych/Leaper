@@ -17,4 +17,12 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Transactional
     @Query(value = "SELECT login FROM users", nativeQuery = true)
     List<String> getAllUsername();
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE users " +
+            "SET login=?1, password=?2, first_name=?3, second_name=?4, last_name=?5, phone_number=?6, email=?7 " +
+            "WHERE id=?8", nativeQuery = true)
+    void updateUser(String login, String password, String firstName, String secondName,
+                            String lastName, String phoneNumber, String email, int id);
 }

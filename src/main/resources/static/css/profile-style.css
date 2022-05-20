@@ -9,8 +9,12 @@ header {
     height: 80px;
 }
 
-.text_h {
+.data {
     text-align: center;
+}
+
+label {
+    padding: 15px;
 }
 
 .btn-div {
@@ -20,7 +24,11 @@ header {
 }
 
 #set-timetable {
-    width: 350px;
+    width: 300px;
+}
+
+.text_h {
+    text-align: center;
 }
 
 .title {

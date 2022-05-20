@@ -19,15 +19,11 @@
 <div class="title" id="button">
     <button onclick="location.href='/leaper/timetable'" type="button" class="btn btn-info">Timetable</button>
     <button onclick="location.href='/leaper/homework'" type="button" class="btn btn-warning">Homework</button>
-    <button type="button" class="btn btn-success">Profile</button>
+    <button onclick="location.href='/leaper/profile'" type="button" class="btn btn-success">Profile</button>
     <button onclick="location.href='/leaper/logout'" type="button" class="btn btn-danger">Exit</button>
 </div>
 
 <h2 class="text_h">Timetable</h2>
-
-<h2>Hello, <th:block th:text="${user.firstName}" /> it's your timetable.</h2>
-<p>--><a href="/leaper/timetable/edit" class="pe-auto"> edit timetable </a><--</p>
-<h2>-----------------------------------------------------------------------------------------------------------------------</h2>
 
 <table>
     <tr>
@@ -121,5 +117,9 @@
         <td th:text="${sundayTimetable.eighth}">...</td>
     </tr>
 </table>
+
+<div class="btn-div">
+    <button id="set-timetable" onclick="location.href='/leaper/timetable/edit'" type="button" class="btn btn-warning">Edit timetable</button>
+</div>
 </body>
 </html>

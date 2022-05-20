@@ -19,15 +19,11 @@
 <div class="title" id="button">
     <button onclick="location.href='/leaper/timetable'" type="button" class="btn btn-info">Timetable</button>
     <button onclick="location.href='/leaper/homework'" type="button" class="btn btn-warning">Homework</button>
-    <button type="button" class="btn btn-success">Profile</button>
+    <button onclick="location.href='/leaper/profile'" type="button" class="btn btn-success">Profile</button>
     <button onclick="location.href='/leaper/logout'" type="button" class="btn btn-danger">Exit</button>
 </div>
 
 <h2 class="text_h">Edit timetable</h2>
-
-<p>--><a href="/leaper/timetable" class="pe-auto"> back </a><--</p>
-<h2>
-    ----------------------------------------------------------------------------------------------------------------------</h2>
 
 <table>
     <tr>
@@ -123,6 +119,7 @@
 </table>
 
 <div class="btn-div">
+    <button id="back-timetable" onclick="location.href='/leaper/timetable'" type="button" class="btn btn-primary">Back</button>
     <button id="set-timetable" onclick="sendJSON()" type="button" class="btn btn-warning">Set new timetable</button>
 </div>
 

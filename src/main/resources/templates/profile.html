@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaper</title>
+    <link th:href="@{/css/profile-style.css}" rel="stylesheet"/>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<body>
+<header>
+    <div class="title">Leaper</div>
+</header>
+
+<div class="title" id="button">
+    <button onclick="location.href='/leaper/timetable'" type="button" class="btn btn-info">Timetable</button>
+    <button onclick="location.href='/leaper/homework'" type="button" class="btn btn-warning">Homework</button>
+    <button onclick="location.href='/leaper/profile'" type="button" class="btn btn-success">Profile</button>
+    <button onclick="location.href='/leaper/logout'" type="button" class="btn btn-danger">Exit</button>
+</div>
+
+<h2 class="text_h">Profile</h2>
+
+<div class="data">
+    <label>
+        First name
+        <input id="firstName" th:value="${user.firstName}">
+    </label>
+
+    <label>
+        Second name
+        <input id="secondName" th:value="${user.secondName}">
+    </label>
+
+    <label>
+        Last name
+        <input id="lastName" th:value="${user.lastName}">
+    </label>
+    <br>
+    <label>
+        Phone number
+        <input id="phoneNumber" th:value="${user.phoneNumber}">
+    </label>
+
+    <label>
+        Email
+        <input id="email" th:value="${user.email}">
+    </label>
+    <br>
+    <label>
+        Login
+        <input id="login" th:value="${user.login}">
+    </label>
+
+    <label>
+        Password
+        <input id="password" th:value="${user.password}">
+    </label>
+</div>
+<div class="btn-div">
+    <button onclick="deleteJSON()" type="button" class="btn btn-danger">Delete account</button>
+    <button id="set-timetable" onclick="sendJSON()" type="button" class="btn btn-warning">Update data</button>
+</div>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    let user = /*[[${user.id}]]*/ "user";
+    /*]]>*/
+
+    function sendJSON() {
+        let login = document.getElementById("login");
+        let password = document.getElementById("password");
+        let firstName = document.getElementById("firstName");
+        let secondName = document.getElementById("secondName");
+        let lastName = document.getElementById("lastName");
+        let phoneNumber = document.getElementById("phoneNumber");
+        let email = document.getElementById("email");
+
+        let xhr = new XMLHttpRequest();
+        let url = "http://localhost:3245/api/users";
+        xhr.open("PATCH", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        var data = JSON.stringify({
+            "id": user,
+            "login": login.value,
+            "password": password.value,
+            "role": "ROLE_STUDENT",
+            "enabled": "true",
+            "firstName": firstName.value,
+            "secondName": secondName.value,
+            "lastName": lastName.value,
+            "phoneNumber": phoneNumber.value,
+            "email": email.value
+        });
+
+        xhr.send(data);
+
+        setTimeout(function(){
+            location.href='http://localhost:3245/leaper/login';
+        }, 200);
+    }
+</script>
+
+<script th:inline="javascript">
+    function deleteJSON() {
+        /*<![CDATA[*/
+        let user = /*[[${user.id}]]*/ "user";
+        /*]]>*/
+
+        let xhr = new XMLHttpRequest();
+        let url = "http://localhost:3245/api/users/" + user;
+
+        xhr.open("DELETE", url, true);
+        xhr.send(url);
+
+        location.href='http://localhost:3245/leaper/login';
+    }
+</script>
+</body>
+</html>

@@ -41,6 +41,13 @@ public class WebController {
         return "login";
     }
 
+    @GetMapping("/registration")
+    public String registration(Model model) {
+        model.addAttribute("allUsername", userService.getAllUsername());
+
+        return "registration";
+    }
+
     @GetMapping("/timetable")
     public String timetable(@AuthenticationPrincipal User userSecurity, Model model) {
         com.leaper.entity.User user = userService.getUserByLogin(userSecurity.getUsername());

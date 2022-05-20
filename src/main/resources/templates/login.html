@@ -16,8 +16,10 @@
     <div class="title">Leaper</div>
 
 </header>
-<form method="post">
 
+<h2 class="text_h">Enter your data</h2>
+
+<form method="post">
     <div class="form">
 
         <!--    <div th:case="${logout}">-->
@@ -31,7 +33,7 @@
         <input class="form-input" type="password" id="password" name="password" placeholder="Password">
         <br>
         <button type="submit" class="form-button" id="sign-in-button">Log in</button>
-        <button class="form-button" id="registration-button">Registration</button>
+        <button type="button" onclick="location.href='http://localhost:3245/leaper/registration'" class="form-button" id="registration-button">Registration</button>
     </div>
 <!--    <input th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden">-->
 </form>

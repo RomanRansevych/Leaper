@@ -17,43 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @org.springframework.web.bind.annotation.RestController
 @RequestMapping("/api")
-public class RestController {
-
-    @Autowired
-    UserService userService;
-
-    @Autowired
-    TimetableService timetableService;
-
-    @Autowired
-    HomeworkService homeworkService;
+public class RestController extends ServiceController {
 
     @PostMapping("/users")
     public User addNewUser(@RequestBody User user) {
-        user.setRole("ROLE_STUDENT");
-        user.setEnabled(true);
-        user.setFirstName("FirstName");
-        user.setSecondName("SecondName");
-        user.setLastName("LastName");
-        user.setPhoneNumber("+380000000000");
-        user.setEmail("youremail@gmail.com");
-
-        Timetable monday = new Timetable("Monday");
-        Timetable tuesday = new Timetable("Tuesday");
-        Timetable wednesday = new Timetable("Wednesday");
-        Timetable thursday = new Timetable("Thursday");
-        Timetable friday = new Timetable("Friday");
-        Timetable saturday = new Timetable("Saturday");
-        Timetable sunday = new Timetable("Sunday");
-
-        user.addTimetable(monday);
-        user.addTimetable(tuesday);
-        user.addTimetable(wednesday);
-        user.addTimetable(thursday);
-        user.addTimetable(friday);
-        user.addTimetable(saturday);
-        user.addTimetable(sunday);
-
         userService.saveUser(user);
 
         return user;

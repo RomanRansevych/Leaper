@@ -1,5 +1,6 @@
 package com.leaper.service.user;
 
+import com.leaper.entity.Timetable;
 import com.leaper.entity.User;
 import com.leaper.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,30 @@ public class UserServiceImplements implements UserService {
 
     @Override
     public void saveUser(User user) {
+        user.setRole("ROLE_STUDENT");
+        user.setEnabled(true);
+        user.setFirstName("FirstName");
+        user.setSecondName("SecondName");
+        user.setLastName("LastName");
+        user.setPhoneNumber("+380000000000");
+        user.setEmail("youremail@gmail.com");
+
+        Timetable monday = new Timetable("Monday");
+        Timetable tuesday = new Timetable("Tuesday");
+        Timetable wednesday = new Timetable("Wednesday");
+        Timetable thursday = new Timetable("Thursday");
+        Timetable friday = new Timetable("Friday");
+        Timetable saturday = new Timetable("Saturday");
+        Timetable sunday = new Timetable("Sunday");
+
+        user.addTimetable(monday);
+        user.addTimetable(tuesday);
+        user.addTimetable(wednesday);
+        user.addTimetable(thursday);
+        user.addTimetable(friday);
+        user.addTimetable(saturday);
+        user.addTimetable(sunday);
+
         userRepository.save(user);
     }
 

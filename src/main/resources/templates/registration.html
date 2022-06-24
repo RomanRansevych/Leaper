@@ -37,16 +37,12 @@
     /*]]>*/
 
     function sendJSON() {
-
-        // с помощью jQuery обращаемся к элементам на странице по их именам
-        // let allUsername = document.getElementById("users");
-        // let allUsername = "${}";
         let username = document.querySelector('#username');
         let passwordOne = document.querySelector('#password_one');
         let passwordTwo = document.querySelector('#password_two');
         let isOk = 1;
 
-        if (username.value !== "") {
+        if (username.value !== "" && passwordOne.value !== "" && passwordTwo.value !== "") {
             if (passwordOne.value === passwordTwo.value) {
                 for (let i = 0; i < allUsername.length; i++) {
                     if (allUsername[i] === username.value) {
@@ -56,20 +52,12 @@
                 if (isOk === 0) {
                     alert("This login is already in use");
                 } else {
-                    // а вот сюда мы поместим ответ от сервера
-                    // let result = document.querySelector('.result');
-                    // создаём новый экземпляр запроса XHR
                     let xhr = new XMLHttpRequest();
-                    // адрес, куда мы отправим нашу JSON-строку
                     let url = "http://localhost:3245/api/users";
-                    // открываем соединение
                     xhr.open("POST", url, true);
-                    // устанавливаем заголовок — выбираем тип контента, который отправится на сервер, в нашем случае мы явно пишем, что это JSON
                     xhr.setRequestHeader("Content-Type", "application/json");
                     xhr.responseType = 'text';
-                    // преобразуем наши данные JSON в строку
                     var data = JSON.stringify({"login": username.value, "password": passwordOne.value});
-                    // когда всё готово, отправляем JSON на сервер
                     xhr.send(data);
 
                     location.href='http://localhost:3245/leaper/login';
@@ -78,7 +66,7 @@
                 alert("Password doesn't match");
             }
         } else {
-            alert("Username is empty");
+            alert("Username or password is empty");
         }
     }
 </script>

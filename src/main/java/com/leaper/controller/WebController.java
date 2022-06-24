@@ -20,16 +20,7 @@ import java.util.List;
 @EnableWebSecurity
 @RequestMapping("/leaper")
 @Controller
-public class WebController {
-
-    @Autowired
-    UserService userService;
-
-    @Autowired
-    TimetableService timetableService;
-
-    @Autowired
-    HomeworkService homeworkService;
+public class WebController extends ServiceController {
 
     @GetMapping("/login")
     public String login(@RequestParam(value = "error", required = false) String error, Model model) {

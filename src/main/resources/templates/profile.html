@@ -81,7 +81,7 @@
         let email = document.getElementById("email");
 
         let xhr = new XMLHttpRequest();
-        let url = "http://localhost:3245/api/users";
+        let url = "http://localhost:3245/api/user/update";
         xhr.open("PATCH", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
 
@@ -113,7 +113,7 @@
         /*]]>*/
 
         let xhr = new XMLHttpRequest();
-        let url = "http://localhost:3245/api/users/" + user;
+        let url = "http://localhost:3245/api/user/delete" + user;
 
         xhr.open("DELETE", url, true);
         xhr.send(url);

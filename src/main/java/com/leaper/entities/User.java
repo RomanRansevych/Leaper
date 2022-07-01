@@ -1,4 +1,4 @@
-package com.leaper.entity;
+package com.leaper.entities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;

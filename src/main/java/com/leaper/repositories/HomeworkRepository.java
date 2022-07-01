@@ -1,6 +1,6 @@
-package com.leaper.repository;
+package com.leaper.repositories;
 
-import com.leaper.entity.Homework;
+import com.leaper.entities.Homework;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

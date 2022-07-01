@@ -53,7 +53,7 @@
                     alert("This login is already in use");
                 } else {
                     let xhr = new XMLHttpRequest();
-                    let url = "http://localhost:3245/api/users";
+                    let url = "http://localhost:3245/api/user/create";
                     xhr.open("POST", url, true);
                     xhr.setRequestHeader("Content-Type", "application/json");
                     xhr.responseType = 'text';

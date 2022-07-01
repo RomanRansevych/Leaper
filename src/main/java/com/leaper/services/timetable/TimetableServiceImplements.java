@@ -1,7 +1,7 @@
-package com.leaper.service.timetable;
+package com.leaper.services.timetable;
 
-import com.leaper.entity.Timetable;
-import com.leaper.repository.TimetableRepository;
+import com.leaper.entities.Timetable;
+import com.leaper.repositories.TimetableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

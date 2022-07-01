@@ -1,8 +1,8 @@
-package com.leaper.service.user;
+package com.leaper.services.user;
 
-import com.leaper.entity.Timetable;
-import com.leaper.entity.User;
-import com.leaper.repository.UserRepository;
+import com.leaper.entities.Timetable;
+import com.leaper.entities.User;
+import com.leaper.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

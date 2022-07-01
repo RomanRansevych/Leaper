@@ -1,6 +1,6 @@
-package com.leaper.service.homework;
+package com.leaper.services.homework;
 
-import com.leaper.entity.Homework;
+import com.leaper.entities.Homework;
 
 import java.util.List;
 

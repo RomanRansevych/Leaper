@@ -1,7 +1,7 @@
-package com.leaper.service.homework;
+package com.leaper.services.homework;
 
-import com.leaper.entity.Homework;
-import com.leaper.repository.HomeworkRepository;
+import com.leaper.entities.Homework;
+import com.leaper.repositories.HomeworkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

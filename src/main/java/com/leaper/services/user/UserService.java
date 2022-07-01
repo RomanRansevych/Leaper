@@ -1,6 +1,6 @@
-package com.leaper.service.user;
+package com.leaper.services.user;
 
-import com.leaper.entity.User;
+import com.leaper.entities.User;
 
 import java.util.List;
 

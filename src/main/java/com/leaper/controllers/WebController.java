@@ -1,11 +1,7 @@
-package com.leaper.controller;
+package com.leaper.controllers;
 
-import com.leaper.entity.Homework;
-import com.leaper.entity.Timetable;
-import com.leaper.service.homework.HomeworkService;
-import com.leaper.service.timetable.TimetableService;
-import com.leaper.service.user.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.leaper.entities.Homework;
+import com.leaper.entities.Timetable;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
@@ -38,7 +34,7 @@ public class WebController extends ServiceController {
 
     @GetMapping("/profile")
     public String profile(@AuthenticationPrincipal User userSecurity, Model model) {
-        com.leaper.entity.User user = userService.getUserByLogin(userSecurity.getUsername());
+        com.leaper.entities.User user = userService.getUserByLogin(userSecurity.getUsername());
         model.addAttribute("user", userService.getUser(user.getId()));
 
         return "profile";
@@ -46,7 +42,7 @@ public class WebController extends ServiceController {
 
     @GetMapping("/timetable")
     public String timetable(@AuthenticationPrincipal User userSecurity, Model model) {
-        com.leaper.entity.User user = userService.getUserByLogin(userSecurity.getUsername());
+        com.leaper.entities.User user = userService.getUserByLogin(userSecurity.getUsername());
         List<Timetable> userTimetable = timetableService.getUserTimetable(user.getId());
 
         Timetable mondayTimetable = userTimetable.get(0);
@@ -72,7 +68,7 @@ public class WebController extends ServiceController {
 
     @GetMapping("/timetable/edit")
     public String editTimetable(@AuthenticationPrincipal User userSecurity, Model model) {
-        com.leaper.entity.User user = userService.getUserByLogin(userSecurity.getUsername());
+        com.leaper.entities.User user = userService.getUserByLogin(userSecurity.getUsername());
         List<Timetable> userTimetable = timetableService.getUserTimetable(user.getId());
 
         Timetable mondayTimetable = userTimetable.get(0);
@@ -98,7 +94,7 @@ public class WebController extends ServiceController {
 
     @GetMapping("/homework")
     public String homework(@AuthenticationPrincipal User userSecurity, Model model) {
-        com.leaper.entity.User user = userService.getUserByLogin(userSecurity.getUsername());
+        com.leaper.entities.User user = userService.getUserByLogin(userSecurity.getUsername());
         List<Homework> homeworkList = homeworkService.getAllByUser_Id(user.getId());
 
         model.addAttribute("user", user);

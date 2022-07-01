@@ -1,6 +1,6 @@
-package com.leaper.repository;
+package com.leaper.repositories;
 
-import com.leaper.entity.User;
+import com.leaper.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

@@ -61,7 +61,7 @@
         let homework = document.querySelector('#homework');
 
         let xhr = new XMLHttpRequest();
-        let url = "http://localhost:3245/api/homework";
+        let url = "http://localhost:3245/api/homework/create";
 
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
@@ -80,7 +80,7 @@
     function deleteHomeworkSendJSON(obj) {
         let id = obj.value;
         let xhr = new XMLHttpRequest();
-        let url = "http://localhost:3245/api/homework/" + id;
+        let url = "http://localhost:3245/api/homework/delete/" + id;
 
         xhr.open("DELETE", url, true);
         xhr.send(url);

@@ -1,6 +1,6 @@
-package com.leaper.service.timetable;
+package com.leaper.services.timetable;
 
-import com.leaper.entity.Timetable;
+import com.leaper.entities.Timetable;
 
 import java.util.List;
 

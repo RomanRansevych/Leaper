@@ -1,8 +1,8 @@
-package com.leaper.controller;
+package com.leaper.controllers;
 
-import com.leaper.service.homework.HomeworkService;
-import com.leaper.service.timetable.TimetableService;
-import com.leaper.service.user.UserService;
+import com.leaper.services.homework.HomeworkService;
+import com.leaper.services.timetable.TimetableService;
+import com.leaper.services.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class ServiceController {
